@@ -114,12 +114,15 @@ namespace Uebung02FahrkostenAnkunft
             endZeit = endZeit.AddMinutes(ts.Minutes);
             endZeit = endZeit.AddSeconds(ts.Seconds);
 
-            Console.WriteLine("Abfahrt um {0}:{1}::{2}", startZeit.Hour, startZeit.Minute, startZeit.Second);
+            //Console.WriteLine("Abfahrt um {0}:{1}::{2}", startZeit.Hour, startZeit.Minute, startZeit.Second);
+            Console.WriteLine("Abfahrt um {0:HH}:{1:mm}::{2:ss}", startZeit, startZeit, startZeit);
 
             Console.WriteLine("Dauer der Fahrt: {0} Stunden ", sumZeit);
-            Console.WriteLine("Dauer der Fahrt als Zeit: {0}:{1}::{2} ", ts.Hours, ts.Minutes, ts.Seconds);
+            //Console.WriteLine("Dauer der Fahrt als Zeit: {0}:{1}::{2} ", ts.Hours, ts.Minutes, ts.Seconds);
+            Console.WriteLine("Dauer der Fahrt als Zeit: {0:hh}:{1:mm}::{2:ss} ", ts, ts, ts);
 
-            Console.WriteLine("Ankunft um {0}:{1}::{2}",endZeit.Hour, endZeit.Minute, endZeit.Second);
+            //Console.WriteLine("Ankunft um {0}:{1}::{2}",endZeit.Hour, endZeit.Minute, endZeit.Second);
+            Console.WriteLine("Ankunft um {0:HH}:{1:mm}::{2:ss}", endZeit, endZeit, endZeit);
 
 
             Console.ReadKey();
@@ -129,8 +132,13 @@ namespace Uebung02FahrkostenAnkunft
 
         static double berechneZeit(double geschwindigkeit, double strecke)
         {
+            
             double zeit = strecke / geschwindigkeit;
+
+            TimeSpan ts = TimeSpan.FromHours(zeit);
+            Console.WriteLine("Dauer des Abschnitts: {0:hh}:{1:mm}::{2:ss} ", ts, ts, ts);
             //Console.WriteLine("Zeit {0} = {1}/{2} ", zeit,strecke, geschwindigkeit);
+
             return zeit; // in hrs
         }
 
